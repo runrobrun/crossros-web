@@ -7,6 +7,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {RouterModule} from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
+import {AppRoutingModule} from './app-routing.module';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBnCEFqnF15WOwueCrsEUBfd8gACOTkmOg",
@@ -21,14 +30,16 @@ const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AppRoutingModule,
+    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, // storage
   ],
   providers: [],
   bootstrap: [AppComponent]

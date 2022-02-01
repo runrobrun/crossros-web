@@ -14,4 +14,10 @@ export class AppComponent {
   }
 
   title = 'cross-roster';
+  activeSeason: any;
+  user: any;
+
+  logout() {
+
+  }
 }
