@@ -16,6 +16,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
+import {MatTabsModule} from "@angular/material/tabs";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBnCEFqnF15WOwueCrsEUBfd8gACOTkmOg",
@@ -39,7 +40,7 @@ const firebaseConfig = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AppRoutingModule,
-    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, // storage
+    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, // storage
   ],
   providers: [],
   bootstrap: [AppComponent]
