@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MatTabsModule} from "@angular/material/tabs";
+import { AboutComponent } from './about/about.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBnCEFqnF15WOwueCrsEUBfd8gACOTkmOg",
@@ -32,7 +33,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
