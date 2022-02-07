@@ -1,0 +1,30 @@
+<mat-card *ngFor="let athlete of athletes" class="athlete-card mat-elevation-z10">
+
+  <mat-card-header>
+
+    <mat-card-title>{{athlete.firstName}} {{athlete.lastName}}</mat-card-title>
+
+  </mat-card-header>
+
+  <img mat-card-image [src]="athlete.profileUrl">
+
+  <mat-card-content>
+    <p>{{athlete.gradYear}}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="athlete-actions">
+
+    <ng-container>
+      <ng-container>
+        <button mat-button class="mat-raised-button mat-accent">
+          EDIT
+        </button>
+        <button mat-mini-fab color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </ng-container>
+    </ng-container>
+
+  </mat-card-actions>
+
+</mat-card>

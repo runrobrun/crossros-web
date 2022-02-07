@@ -21,4 +21,14 @@ export class AboutComponent implements OnInit {
         console.log(snap.payload.data());
       });
   }
+
+  orReadCollection() {
+    this.db.collection('athletes/L7eZ8TW3MsjPUjzbwuIE/results').get()
+      .subscribe(snaps => {
+        snaps.forEach(snap => {
+          console.log(snap.id);
+          console.log(snap.data());
+        })
+      });
+  }
 }
