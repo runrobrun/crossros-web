@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MatTabsModule} from "@angular/material/tabs";
 import { AboutComponent } from './about/about.component';
+import { AthleteCardListComponent } from './athlete-card-list/athlete-card-list.component';
+import {MatCardModule} from "@angular/material/card";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBnCEFqnF15WOwueCrsEUBfd8gACOTkmOg",
@@ -34,16 +36,17 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    AthleteCardListComponent
   ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    AppRoutingModule,
-    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, // storage
-  ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFirestoreModule, // firestore
+        AngularFireAuthModule, // auth
+        AppRoutingModule,
+        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, // storage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -7,10 +7,14 @@
   </div>
   <mat-tab-group>
     <mat-tab label="Boys">
+      <app-athlete-card-list [athletes]="maleAthletes$ | async">
 
+      </app-athlete-card-list>
     </mat-tab>
     <mat-tab label="girls">
+      <app-athlete-card-list [athletes]="femaleAthletes$ | async">
 
+      </app-athlete-card-list>
     </mat-tab>
   </mat-tab-group>
 </div>
