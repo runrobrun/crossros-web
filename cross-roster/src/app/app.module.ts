@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
-import { AngularFireStorageModule} from '@angular/fire/compat/storage';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule, USE_EMULATOR as USE_FIRESTORE_EMULATOR} from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule, USE_EMULATOR as USE__STORAGE_EMULATOR} from '@angular/fire/compat/storage';
+import { AngularFireAuthModule, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {RouterModule} from '@angular/router';
@@ -20,17 +20,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { AboutComponent } from './about/about.component';
 import { AthleteCardListComponent } from './athlete-card-list/athlete-card-list.component';
 import {MatCardModule} from "@angular/material/card";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBnCEFqnF15WOwueCrsEUBfd8gACOTkmOg",
-  authDomain: "xc-roster-manager.firebaseapp.com",
-  databaseURL: "https://xc-roster-manager.firebaseio.com",
-  projectId: "xc-roster-manager",
-  storageBucket: "xc-roster-manager.appspot.com",
-  messagingSenderId: "136786443589",
-  appId: "1:136786443589:web:f1ad366e45775bed0d922c",
-  measurementId: "G-VX8R78XYDQ"
-}
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -41,13 +31,15 @@ const firebaseConfig = {
   ],
     imports: [
         BrowserModule,
-        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule, // firestore
         AngularFireAuthModule, // auth
         AppRoutingModule,
         AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, // storage
     ],
-  providers: [],
+  providers: [
+    { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
