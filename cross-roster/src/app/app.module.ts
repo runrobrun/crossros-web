@@ -21,22 +21,33 @@ import { AboutComponent } from './about/about.component';
 import { AthleteCardListComponent } from './athlete-card-list/athlete-card-list.component';
 import {MatCardModule} from "@angular/material/card";
 import {environment} from "../environments/environment";
+import { CreateAthleteComponent } from './create-athlete/create-athlete.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatCommonModule, MatNativeDateModule} from '@angular/material/core';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    AthleteCardListComponent
+    AthleteCardListComponent,
+    CreateAthleteComponent
   ],
-    imports: [
-        BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule, // firestore
-        AngularFireAuthModule, // auth
-        AppRoutingModule,
-        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, // storage
-    ],
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AppRoutingModule,
+    MatCommonModule,
+    MatNativeDateModule,
+    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, // storage
+  ],
   providers: [
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
   ],

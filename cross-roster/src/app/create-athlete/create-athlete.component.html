@@ -1,0 +1,102 @@
+<div class="create-athlete">
+  <h3>Create New Athlete</h3>
+
+  <form [formGroup]="athleteForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matNativeControl formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="MALE">Male</mat-option>
+        <mat-option value="FEMALE">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Graduation Year</mat-label>
+      <input matInput formControlName="gradYear">
+    </mat-form-field>
+    <mat-slide-toggle formControlName="active">Is Active?</mat-slide-toggle>
+    <mat-form-field appearance="fill">
+      <mat-label>Primary Phone</mat-label>
+      <input matInput formControlName="primaryPhone">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Secondary Phone</mat-label>
+      <input matInput formControlName="secondaryPhone">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Uniform Bottom Size</mat-label>
+      <mat-select formControlName="uniformBottomSize">
+        <mat-option value="YXL">YXL</mat-option>
+        <mat-option value="S">S</mat-option>
+        <mat-option value="M">M</mat-option>
+        <mat-option value="L">L</mat-option>
+        <mat-option value="XL">XL</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Uniform Top Size</mat-label>
+      <mat-select formControlName="uniformTopSize">
+        <mat-option value="YXL">YXL</mat-option>
+        <mat-option value="S">S</mat-option>
+        <mat-option value="M">M</mat-option>
+        <mat-option value="L">L</mat-option>
+        <mat-option value="XL">XL</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Warm Up Top Size</mat-label>
+      <mat-select formControlName="warmUpTopSize">
+        <mat-option value="YXL">YXL</mat-option>
+        <mat-option value="S">S</mat-option>
+        <mat-option value="M">M</mat-option>
+        <mat-option value="L">L</mat-option>
+        <mat-option value="XL">XL</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>T-Shirt Size</mat-label>
+      <mat-select formControlName="tshirtSize">
+        <mat-option value="YXL">YXL</mat-option>
+        <mat-option value="S">S</mat-option>
+        <mat-option value="M">M</mat-option>
+        <mat-option value="L">L</mat-option>
+        <mat-option value="XL">XL</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Bag Number</mat-label>
+      <input matInput formControlName="bagNumber">
+    </mat-form-field>
+    <mat-slide-toggle formControlName="isTeamLeader">Is Team Leader?</mat-slide-toggle>
+    <mat-slide-toggle formControlName="isPhysicalCurrent">Is Physical Current?</mat-slide-toggle>
+    <mat-form-field appearance="outline">
+      <mat-label>Date of Physical</mat-label>
+      <input matInput [matDatepicker]="physicalDatePicker" formControlName="physicalExpiryDate" />
+      <mat-datepicker-toggle matSuffix [for]="physicalDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #physicalDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Bio</mat-label>
+      <textarea matInput formControlName="bio"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Notes</mat-label>
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="warn" [disabled]="!athleteForm.valid" (click)="onCreateAthlete()">
+      Create Athlete
+    </button>
+  </form>
+</div>
