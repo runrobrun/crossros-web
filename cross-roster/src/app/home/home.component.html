@@ -1,18 +1,20 @@
 <div class="athletes-panel">
   <div class="header">
     <h2 class="title">Athletes</h2>
-    <button mat-mini-fab color="accent">
+    <button mat-mini-fab color="accent" routerLink="/create-athlete">
       <mat-icon class="add-athlete-btn">add</mat-icon>
     </button>
   </div>
   <mat-tab-group>
     <mat-tab label="Boys">
-      <app-athlete-card-list [athletes]="maleAthletes$ | async">
+      <app-athlete-card-list [athletes]="maleAthletes$ | async"
+                             (athleteEdited)="reloadAthletes()">
 
       </app-athlete-card-list>
     </mat-tab>
     <mat-tab label="girls">
-      <app-athlete-card-list [athletes]="femaleAthletes$ | async">
+      <app-athlete-card-list [athletes]="femaleAthletes$ | async"
+                             (athleteEdited)="reloadAthletes()">
 
       </app-athlete-card-list>
     </mat-tab>

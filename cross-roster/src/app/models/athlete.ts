@@ -1,5 +1,5 @@
 // @ts-ignore
-import firebase from 'firebase';
+import firebase from 'firebase/compat/app';
 import Timestamp = firebase.firestore.Timestamp;
 
 export interface Athlete {
@@ -20,7 +20,7 @@ export interface Athlete {
   tshirtSize?: string;
   isTeamLeader?: boolean;
   teamLeader?: string;
-  physicalCurrent?: boolean;
+  isPhysicalCurrent?: boolean;
   physicalExpiryDate?: Timestamp;
   bio?: string;
   notes?: string;

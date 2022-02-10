@@ -1,0 +1,115 @@
+<h2 mat-dialog-title>Edit Athlete</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <input placeholder="First Name" matInput formControlName="firstName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <input placeholder="Last Name" matInput formControlName="lastName" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-select placeholder="Select gender" formControlName="gender">
+      <mat-option value="FEMALE">Female</mat-option>
+      <mat-option value="MALE">Male</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="20xx" matInput formControlName="gradYear" />
+  </mat-form-field>
+
+  <mat-slide-toggle class="active-athlete" color="primary" formControlName="active">
+    Athlete is currently active?
+  </mat-slide-toggle>
+
+  <mat-form-field appearance="outline">
+    <input placeholder="Primary Phone number" matInput formControlName="primaryPhone" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <input placeholder="Secondary Phone number" matInput formControlName="secondaryPhone" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <input placeholder="email" matInput formControlName="email" />
+  </mat-form-field>
+
+  <mat-select placeholder="Uniform Bottom Size" formControlName="uniformBottomSize">
+    <mat-option value="YL">YL</mat-option>
+    <mat-option value="XS">XS</mat-option>
+    <mat-option value="S">S</mat-option>
+    <mat-option value="M">M</mat-option>
+    <mat-option value="L">L</mat-option>
+    <mat-option value="XL">XL</mat-option>
+  </mat-select>
+
+  <mat-select placeholder="Uniform Top Size" formControlName="uniformTopSize">
+    <mat-option value="YL">YL</mat-option>
+    <mat-option value="XS">XS</mat-option>
+    <mat-option value="S">S</mat-option>
+    <mat-option value="M">M</mat-option>
+    <mat-option value="L">L</mat-option>
+    <mat-option value="XL">XL</mat-option>
+  </mat-select>
+
+  <mat-select placeholder="Warm Up Size" formControlName="warmUpTopSize">
+    <mat-option value="YL">YL</mat-option>
+    <mat-option value="XS">XS</mat-option>
+    <mat-option value="S">S</mat-option>
+    <mat-option value="M">M</mat-option>
+    <mat-option value="L">L</mat-option>
+    <mat-option value="XL">XL</mat-option>
+  </mat-select>
+
+  <mat-select placeholder="Tee Shirt Size" formControlName="tshirtSize">
+    <mat-option value="YL">YL</mat-option>
+    <mat-option value="XS">XS</mat-option>
+    <mat-option value="S">S</mat-option>
+    <mat-option value="M">M</mat-option>
+    <mat-option value="L">L</mat-option>
+    <mat-option value="XL">XL</mat-option>
+  </mat-select>
+
+  <mat-form-field appearance="outline">
+    <input placeholder="Bag #" matInput formControlName="bagNumber" />
+  </mat-form-field>
+
+  <mat-slide-toggle class="active-athlete" color="primary" formControlName="isTeamLeader">
+    Athlete is Team Leader?
+  </mat-slide-toggle>
+
+  <mat-form-field appearance="outline">
+    <input placeholder="Team Leader" matInput formControlName="teamLeader" />
+  </mat-form-field>
+
+  <mat-slide-toggle class="active-athlete" color="primary" formControlName="isPhysicalCurrent">
+    Athlete Physical is Current?
+  </mat-slide-toggle>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Date of Physical</mat-label>
+    <input matInput [matDatepicker]="physicalDatePicker" formControlName="physicalExpiryDate" />
+    <mat-datepicker-toggle matSuffix [for]="physicalDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #physicalDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="athlete-image-upload">
+    <span>Profile Pic:</span>
+
+    <img class="athlete-thumbnail mat-elevation-z3" />
+  </div>
+
+  <mat-form-field appearance="outline">
+    <textarea matInput placeholder="Bio" formControlName="bio"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Close</button>
+
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>
