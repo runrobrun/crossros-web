@@ -13,7 +13,9 @@
   </mat-card-content>
 
   <mat-card-actions class="athlete-actions">
-
+    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/athletes', athlete.profileUrl]">
+      VIEW DETAILS
+    </button>
     <ng-container>
       <ng-container>
         <button mat-button class="mat-raised-button mat-accent" (click)="editAthlete(athlete)">

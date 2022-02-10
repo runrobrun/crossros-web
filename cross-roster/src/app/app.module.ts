@@ -31,6 +31,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { EditAthleteDialogComponent } from './edit-athlete-dialog/edit-athlete-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { ViewAthleteComponent } from './view-athlete/view-athlete.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -39,18 +41,19 @@ import {MatDialogModule} from "@angular/material/dialog";
     AboutComponent,
     AthleteCardListComponent,
     CreateAthleteComponent,
-    EditAthleteDialogComponent
+    EditAthleteDialogComponent,
+    ViewAthleteComponent
   ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    AppRoutingModule,
-    MatCommonModule,
-    MatNativeDateModule,
-    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, // storage
-  ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule, // firestore
+        AngularFireAuthModule, // auth
+        AppRoutingModule,
+        MatCommonModule,
+        MatNativeDateModule,
+        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, // storage
+    ],
   providers: [
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
   ],

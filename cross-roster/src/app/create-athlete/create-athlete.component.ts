@@ -70,7 +70,7 @@ export class CreateAthleteComponent implements OnInit {
     };
 
     newAthlete.physicalExpiryDate = Timestamp.fromDate(this.athleteForm.value.physicalExpiryDate);
-    newAthlete.profileUrl = val.firstName.toLowerCase() + '-' + val.lastName.toLowerCase();
+    newAthlete.profileUrl = val.firstName.toLowerCase() + '-' + val.lastName.toLowerCase() + '-' + val.gradYear;
 
     this.athletesService.createAthlete(newAthlete, this.athleteId)
       .pipe(
