@@ -48,4 +48,16 @@ export class AthletesService {
   deleteAthlete(athleteId: string) {
     return from(this.db.doc(`athletes/${athleteId}`).delete());
   }
+
+  findAthleteByUrl(profileUrl: string): Observable<Athlete | null> {
+    return this.db
+      .collection('athletes', (ref) => ref.where('profileUrl', '==', profileUrl))
+      .get()
+      .pipe(
+        map((results) => {
+          const athletes = convertSnaps<Athlete>(results);
+          return athletes.length === 1 ? athletes[0] : null;
+        })
+      );
+  }
 }
