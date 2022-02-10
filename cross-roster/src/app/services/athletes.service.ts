@@ -44,4 +44,8 @@ export class AthletesService {
   updateAthlete(athleteId: string, changes: Partial<Athlete>): Observable<any> {
     return from(this.db.doc(`athletes/${athleteId}`).update(changes));
   }
+
+  deleteAthlete(athleteId: string) {
+    return from(this.db.doc(`athletes/${athleteId}`).delete());
+  }
 }
