@@ -8,13 +8,15 @@
   <mat-tab-group>
     <mat-tab label="Boys">
       <app-athlete-card-list [athletes]="maleAthletes$ | async"
-                             (athleteEdited)="reloadAthletes()">
+                             (athleteEdited)="reloadAthletes()"
+                             (athleteDeleted)="reloadAthletes()">
 
       </app-athlete-card-list>
     </mat-tab>
-    <mat-tab label="girls">
+    <mat-tab label="Girls">
       <app-athlete-card-list [athletes]="femaleAthletes$ | async"
-                             (athleteEdited)="reloadAthletes()">
+                             (athleteEdited)="reloadAthletes()"
+                             (athleteDeleted)="reloadAthletes()">
 
       </app-athlete-card-list>
     </mat-tab>
