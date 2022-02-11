@@ -1,0 +1,22 @@
+<div class="create-result">
+  <h3>Create New Meet Result for *athlete name here</h3>
+
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <input placeholder="season" matInput formControlName="meetName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="season" matInput formControlName="season" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="Distance in miles(3.1)" matInput formControlName="distanceInMiles" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="time (XX:XX.X)" matInput formControlName="time" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="place" matInput formControlName="place" />
+    </mat-form-field>
+    <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onCreateResult()">Create Result</button>
+  </form>
+</div>
