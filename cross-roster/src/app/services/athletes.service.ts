@@ -80,4 +80,8 @@ export class AthletesService {
       })
     );
   }
+
+  getAthleteById(athleteId: string): Observable<any> {
+    return this.db.doc(`athletes/${athleteId}`).valueChanges();
+  }
 }
