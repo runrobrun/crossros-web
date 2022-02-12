@@ -3,6 +3,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {from, map, Observable} from "rxjs";
 import {Athlete} from "../models/athlete";
 import {convertSnaps} from "./data-utils";
+import {Result} from "../models/result";
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +60,28 @@ export class AthletesService {
           return athletes.length === 1 ? athletes[0] : null;
         })
       );
+  }
+
+  createResult(newResult: Partial<Result>, resultId: string, athleteId: string) {
+    let saveResult$: Observable<any>;
+
+    if (resultId) {
+      saveResult$ = from(this.db.doc(`athletes/${athleteId}/meetResults/${resultId}`).set(newResult));
+    } else {
+      saveResult$ = from(this.db.collection(`athletes/${athleteId}/meetResults`).add(newResult));
+    }
+
+    return saveResult$.pipe(
+      map((res) => {
+        return {
+          id: resultId ?? res.id,
+          ...newResult,
+        };
+      })
+    );
+  }
+
+  getAthleteById(athleteId: string): Observable<any> {
+    return this.db.doc(`athletes/${athleteId}`).valueChanges();
   }
 }

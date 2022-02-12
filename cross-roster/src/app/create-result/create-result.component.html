@@ -1,0 +1,27 @@
+<div class="create-result">
+  <h3>Create New Meet Result for {{ (athlete | async)?.firstName }} {{(athlete | async)?.lastName}}</h3>
+
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Meet Name</mat-label>
+      <input placeholder="meetName" matInput formControlName="meetName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Season</mat-label>
+      <input placeholder="season" matInput formControlName="season" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Distance in miles(3.1)</mat-label>
+      <input placeholder="Distance in miles(3.1)" matInput formControlName="distanceInMiles" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Total Race Time</mat-label>
+      <input placeholder="time (XX:XX.X)" matInput formControlName="time" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Place</mat-label>
+      <input placeholder="place" matInput formControlName="place" />
+    </mat-form-field>
+    <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onCreateResult()">Create Result</button>
+  </form>
+</div>

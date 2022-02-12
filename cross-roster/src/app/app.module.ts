@@ -33,6 +33,7 @@ import { EditAthleteDialogComponent } from './edit-athlete-dialog/edit-athlete-d
 import {MatDialogModule} from "@angular/material/dialog";
 import { ViewAthleteComponent } from './view-athlete/view-athlete.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { CreateResultComponent } from './create-result/create-result.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     AthleteCardListComponent,
     CreateAthleteComponent,
     EditAthleteDialogComponent,
-    ViewAthleteComponent
+    ViewAthleteComponent,
+    CreateResultComponent
   ],
     imports: [
         BrowserModule,

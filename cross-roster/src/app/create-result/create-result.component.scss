@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.create-result {
+  margin-top: 20px;
+}
+
+.create-result form {
+  display: flex;
+  flex-direction: column;
+}
