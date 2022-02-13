@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {from, map, Observable} from "rxjs";
+import {first, from, map, Observable} from "rxjs";
 import {Athlete} from "../models/athlete";
 import {convertSnaps} from "./data-utils";
 import {Result} from "../models/result";
+import firebase from "firebase/compat";
+import OrderByDirection = firebase.firestore.OrderByDirection;
 
 @Injectable({
   providedIn: 'root'
@@ -83,5 +85,14 @@ export class AthletesService {
 
   getAthleteById(athleteId: string): Observable<any> {
     return this.db.doc(`athletes/${athleteId}`).valueChanges();
+  }
+
+  findResults(athleteId: string, sortOrder: OrderByDirection = 'asc'): Observable<Result[]> {
+    return this.db.collection(`athletes/${athleteId}/meetResults`,
+      ref => ref.orderBy('meetName', sortOrder))
+      .get()
+      .pipe(
+        map(meetResults => convertSnaps<Result>(meetResults))
+      )
   }
 }

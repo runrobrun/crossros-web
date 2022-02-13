@@ -34,6 +34,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { ViewAthleteComponent } from './view-athlete/view-athlete.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CreateResultComponent } from './create-result/create-result.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { CreateResultComponent } from './create-result/create-result.component';
         AppRoutingModule,
         MatCommonModule,
         MatNativeDateModule,
-        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, // storage
+        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, // storage
     ],
   providers: [
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
