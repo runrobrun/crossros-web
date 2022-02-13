@@ -35,6 +35,7 @@ import { ViewAthleteComponent } from './view-athlete/view-athlete.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CreateResultComponent } from './create-result/create-result.component';
 import {MatTableModule} from "@angular/material/table";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatTableModule} from "@angular/material/table";
     CreateAthleteComponent,
     EditAthleteDialogComponent,
     ViewAthleteComponent,
-    CreateResultComponent
+    CreateResultComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
@@ -58,6 +60,7 @@ import {MatTableModule} from "@angular/material/table";
         AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, // storage
     ],
   providers: [
+    { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['http://localhost', 9099] : undefined },
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
   ],
   bootstrap: [AppComponent]

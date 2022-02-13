@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "local-dev": "firebase emulators:start --only firestore --import sample-athletes --export-on-exit",
+    "local-dev": "firebase emulators:start --only firestore,auth --import sample-athletes --export-on-exit",
     "test": "ng test"
   },
   "private": true,
