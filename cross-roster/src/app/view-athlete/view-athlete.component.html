@@ -39,7 +39,7 @@
     </ng-container>
     <ng-container matColumnDef="meetDateTime">
       <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
-      <mat-cell *matCellDef="let result">{{result.meetDateTime}}</mat-cell>
+      <mat-cell *matCellDef="let result">{{result.meetDateTime?.toDate()| date: 'MM/dd/yyyy'}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="time">
       <mat-header-cell *matHeaderCellDef>Time</mat-header-cell>

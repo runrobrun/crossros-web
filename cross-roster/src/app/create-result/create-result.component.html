@@ -7,6 +7,12 @@
       <input placeholder="meetName" matInput formControlName="meetName" />
     </mat-form-field>
     <mat-form-field appearance="outline">
+      <mat-label>Date of Physical</mat-label>
+      <input matInput [matDatepicker]="meetDatePicker" formControlName="meetDateTime" />
+      <mat-datepicker-toggle matSuffix [for]="meetDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #meetDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Season</mat-label>
       <input placeholder="season" matInput formControlName="season" />
     </mat-form-field>
