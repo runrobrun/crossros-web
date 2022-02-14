@@ -20,6 +20,7 @@ export class CreateResultComponent implements OnInit {
 
   form = this.fb.group({
     distanceInMiles: [3.1, Validators.required],
+    meetDateTime: ['', Validators.required],
     meetName: ['', Validators.required],
     place: [],
     season: [2020],
@@ -64,6 +65,7 @@ export class CreateResultComponent implements OnInit {
       distanceInMiles: parseFloat(val.distanceInMiles),
       place: parseInt(val.place),
       season: parseInt(val.season),
+      meetDateTime: val.meetDateTime,
       time: val.time,
       meetName: val.meetName,
       timeInSeconds: null,

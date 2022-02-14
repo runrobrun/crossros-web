@@ -7,6 +7,7 @@ import {CreateAthleteComponent} from "./create-athlete/create-athlete.component"
 import {AthleteResolver} from "./services/athlete.resolver";
 import {ViewAthleteComponent} from "./view-athlete/view-athlete.component";
 import {CreateResultComponent} from "./create-result/create-result.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'create-athlete',
     component: CreateAthleteComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'athletes/:profileUrl',
