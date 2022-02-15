@@ -3,12 +3,12 @@
   <mat-sidenav #start (click)="start.close()">
     <mat-nav-list>
 
-      <a mat-list-item routerLink="/">
+      <a mat-list-item routerLink="/" *ngIf="user.isLoggedIn$ | async">
         <mat-icon>library_books</mat-icon>
         <span>Athletes</span>
       </a>
 
-      <a mat-list-item routerLink="/create-user">
+      <a mat-list-item routerLink="/create-user" *ngIf="user.isLoggedIn$ | async">
         <mat-icon>add_circle_outline</mat-icon>
         <span>Create user</span>
       </a>
@@ -17,17 +17,17 @@
         <mat-icon>question_answer</mat-icon>
         <span>About</span>
       </a>
-      <a mat-list-item routerLink="login">
+      <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
         <mat-icon>person_add</mat-icon>
         <span>Register</span>
       </a>
 
-      <a mat-list-item routerLink="login">
+      <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
         <mat-icon>account_circle</mat-icon>
         <span>Login</span>
       </a>
 
-      <a mat-list-item>
+      <a mat-list-item *ngIf="user.isLoggedIn$ | async" (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </a>
@@ -46,9 +46,9 @@
 
       <div class="filler"></div>
 
-      <ng-container>
+      <ng-container *ngIf="(user.pictureUrl$ | async) as pictureUrl">
 
-        <img class="user-avatar">
+        <img [src]="pictureUrl" class="user-avatar">
 
       </ng-container>
 
@@ -60,9 +60,9 @@
   <router-outlet></router-outlet>
 
     <mat-toolbar class="footer" color="primary">
-      <div class="filler">
+      <span class="footer-spacer">
         &copy; Rob Hammann 2022
-      </div>
+      </span>
     </mat-toolbar>
 
 </mat-sidenav-container>

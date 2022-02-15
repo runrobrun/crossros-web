@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import {UserService} from "./services/user.service";
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,16 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class AppComponent {
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore,
+              public user: UserService) {
     const things = db.collection('athletes').valueChanges();
     things.subscribe(console.log);
   }
 
   title = 'cross-roster';
   activeSeason: any;
-  user: any;
 
   logout() {
-
+    this.user.logout();
   }
 }
