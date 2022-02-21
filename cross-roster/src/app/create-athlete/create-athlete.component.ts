@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Athlete} from "../models/athlete";
 import {AthletesService} from "../services/athletes.service";
-import {catchError, tap, throwError} from "rxjs";
+import {catchError, concatMap, last, Observable, tap, throwError} from "rxjs";
 import {Router} from "@angular/router";
 import firebase from 'firebase/compat/app';
 import Timestamp = firebase.firestore.Timestamp;
@@ -39,6 +39,8 @@ export class CreateAthleteComponent implements OnInit {
   });
 
   private athleteId: string;
+  public percentageChanges$: Observable<number | undefined>;
+  public profileImageUrl: String;
 
   constructor(private fb: FormBuilder,
               private athletesService: AthletesService,
@@ -76,6 +78,7 @@ export class CreateAthleteComponent implements OnInit {
 
     newAthlete.physicalExpiryDate = Timestamp.fromDate(this.athleteForm.value.physicalExpiryDate);
     newAthlete.profileUrl = val.firstName.toLowerCase() + '-' + val.lastName.toLowerCase() + '-' + val.gradYear;
+    newAthlete.profileImageUrl = this.profileImageUrl;
 
     this.athletesService.createAthlete(newAthlete, this.athleteId)
       .pipe(
@@ -97,6 +100,18 @@ export class CreateAthleteComponent implements OnInit {
     const task = this.storage.upload(filePath, file, {
       cacheControl: "max-age=2592000,public"
     });
-    task.snapshotChanges().subscribe();
+    this.percentageChanges$ = task.percentageChanges();
+    task.snapshotChanges()
+      .pipe(
+        last(),
+        concatMap(() => this.storage.ref(filePath).getDownloadURL()),
+        tap(url => this.profileImageUrl = url as string),
+        catchError(err => {
+          console.log(err);
+          alert('Could not create thumbnail url');
+          return throwError(err);
+        })
+      )
+      .subscribe();
   }
 }
