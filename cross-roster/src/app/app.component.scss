@@ -23,9 +23,7 @@ main {
 }
 
 .footer {
-  bottom: 0;
   width: 100%;
-  position: fixed;
   text-align: center;
   color: white;
   z-index: 1;
@@ -38,8 +36,6 @@ main {
   align-self: flex-end;
 }
 
-.content-container {
-  margin-bottom: 75px;
-}
+
 
 

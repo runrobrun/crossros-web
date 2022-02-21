@@ -5,9 +5,9 @@
     <mat-card-title>{{athlete.firstName}} {{athlete.lastName}}</mat-card-title>
 
   </mat-card-header>
-
-  <img mat-card-image [src]="athlete.profileUrl">
-
+  <div *ngIf="athlete.profileImageUrl" class="profile-image">
+    <img mat-card-image [src]="athlete.profileImageUrl" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
+  </div>
   <mat-card-content>
     <p>{{athlete.gradYear}}</p>
   </mat-card-content>

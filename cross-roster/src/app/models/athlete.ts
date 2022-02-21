@@ -17,6 +17,7 @@ export interface Athlete {
   warmUpTopSize?: string;
   bagNumber?: number;
   profileUrl?: string;
+  profileImageUrl?: String;
   tshirtSize?: string;
   isTeamLeader?: boolean;
   teamLeader?: string;
