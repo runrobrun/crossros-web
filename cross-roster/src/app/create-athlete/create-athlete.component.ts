@@ -6,6 +6,8 @@ import {catchError, tap, throwError} from "rxjs";
 import {Router} from "@angular/router";
 import firebase from 'firebase/compat/app';
 import Timestamp = firebase.firestore.Timestamp;
+import {AngularFireStorage} from "@angular/fire/compat/storage";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-create-athlete',
@@ -40,9 +42,12 @@ export class CreateAthleteComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private athletesService: AthletesService,
-              private router: Router) { }
+              private router: Router,
+              private afs: AngularFirestore,
+              private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
+    this.athleteId = this.afs.createId();
   }
 
   onCreateAthlete() {
@@ -84,5 +89,14 @@ export class CreateAthleteComponent implements OnInit {
         })
       )
       .subscribe()
+  }
+
+  uploadThumbnail(event: Event) {
+    const file: File = (<HTMLInputElement>event.target).files[0];
+    const filePath = `athletes/${this.athleteId}/${file.name}`;
+    const task = this.storage.upload(filePath, file, {
+      cacheControl: "max-age=2592000,public"
+    });
+    task.snapshotChanges().subscribe();
   }
 }

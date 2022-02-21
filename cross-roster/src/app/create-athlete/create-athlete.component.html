@@ -2,7 +2,6 @@
   <h3>Create New Athlete</h3>
 
   <form [formGroup]="athleteForm">
-
     <mat-form-field appearance="fill">
       <mat-label>First Name</mat-label>
       <input matNativeControl formControlName="firstName">
@@ -10,6 +9,11 @@
     <mat-form-field appearance="fill">
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Upload Image</mat-label>
+      <ngx-mat-file-input (change)="uploadThumbnail($event)"></ngx-mat-file-input>
+      <mat-icon matSuffix>folder</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Gender</mat-label>

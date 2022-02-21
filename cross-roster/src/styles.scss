@@ -1,10 +1,11 @@
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
-* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzUzYWY5NyIsIj9lcjwjY2JlN2UwIiwiO2VyPCMzOTk2N2F$LCIlPmBePCNlNGU0ZTQiLCI~ZXI8I2Y3ZjdmNyIsIjtlcjwjZDlkOWQ5fiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjEzfQ==
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzUzYWY5NyIsIj9lcjwjY2JlN2UwIiwiO2VyPCMzOTk2N2F$LCIlPmBePCNhZjUzNmIiLCI~ZXI8I2Y3ZjdmNyIsIjtlcjwjZDlkOWQ5fiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjEzfQ==
 */
 
 @use '@angular/material' as mat;
+@import "~firebaseui/dist/firebaseui.css";
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -12,7 +13,7 @@
 // Fonts
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import "~firebaseui/dist/firebaseui.css";
+
 $fontConfig: (
   display-4: mat.define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
   display-3: mat.define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
@@ -171,20 +172,20 @@ $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #e4e4e4;
+  --accent-color: #af536b;
   --accent-lighter-color: #f7f7f7;
   --accent-darker-color: #d9d9d9;
-  --text-accent-color: #{$dark-primary-text};
+  --text-accent-color: #{$light-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }
 $mat-accent: (
-  main: #e4e4e4,
+  main: #af536b,
   lighter: #f7f7f7,
   darker: #d9d9d9,
-  200: #e4e4e4, // For slide toggle,
+  200: #af536b, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
     darker: $dark-primary-text,
   )
@@ -201,10 +202,10 @@ body {
   --text-warn-darker-color: #{$light-primary-text};
 }
 $mat-warn: (
-  main: #ff0000,
-  lighter: #ffb3b3,
-  darker: #ff0000,
-  200: #ff0000, // For slide toggle,
+  main: #8d4255,
+  lighter: #ddc6cc,
+  darker: #702b2b,
+  200: #8d4255, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -260,4 +261,3 @@ $altTheme: (
     font-family: 'Roboto';
   }
 }
-

@@ -36,6 +36,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CreateResultComponent } from './create-result/create-result.component';
 import {MatTableModule} from "@angular/material/table";
 import { LoginComponent } from './login/login.component';
+import {MaterialFileInputModule} from "ngx-material-file-input";
 
 @NgModule({
   declarations: [
@@ -49,16 +50,16 @@ import { LoginComponent } from './login/login.component';
     CreateResultComponent,
     LoginComponent
   ],
-    imports: [
-        BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule, // firestore
-        AngularFireAuthModule, // auth
-        AppRoutingModule,
-        MatCommonModule,
-        MatNativeDateModule,
-        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, // storage
-    ],
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AppRoutingModule,
+    MatCommonModule,
+    MatNativeDateModule,
+    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, MaterialFileInputModule, // storage
+  ],
   providers: [
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['http://localhost', 9099] : undefined },
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
