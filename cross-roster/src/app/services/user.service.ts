@@ -12,6 +12,7 @@ export class UserService {
   isLoggedIn$: Observable<boolean>;
   isLoggedOut$: Observable<boolean>;
   pictureUrl$: Observable<string>;
+  userId$: Observable<string>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -20,10 +21,14 @@ export class UserService {
     this.isLoggedIn$ = afAuth.authState.pipe(map(user => !!user));
     this.isLoggedOut$ = this.isLoggedIn$.pipe(map(loggedIn => !loggedIn));
     this.pictureUrl$ = afAuth.authState.pipe(map(user => user? user.photoURL : null));
+    this.userId$ = afAuth.authState.pipe(map(user => user? user.uid: null));
   }
 
   logout() {
     this.afAuth.signOut();
     this.router.navigateByUrl('/login');
   }
+
+
+
 }
