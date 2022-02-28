@@ -8,6 +8,9 @@
   <div *ngIf="athlete.profileImageUrl" class="profile-image">
     <img mat-card-image [src]="athlete.profileImageUrl" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
   </div>
+  <div *ngIf="!athlete.profileImageUrl" class="profile-image">
+    <img mat-card-image src="/assets/blank-profile-picture.png" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
+  </div>
   <mat-card-content>
     <p>{{athlete.gradYear}}</p>
   </mat-card-content>
