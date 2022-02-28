@@ -11,10 +11,8 @@ export class AppComponent {
 
   constructor(private db: AngularFirestore,
               public user: UserService) {
-    const things = db.collection('athletes').valueChanges();
-    things.subscribe(console.log);
   }
-
+  public uid = this.user.userId$.subscribe((results) => this.uid = results)
   title = 'cross-roster';
   activeSeason: any;
 
