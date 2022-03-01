@@ -8,6 +8,9 @@ import {AthleteResolver} from "./services/athlete.resolver";
 import {ViewAthleteComponent} from "./view-athlete/view-athlete.component";
 import {CreateResultComponent} from "./create-result/create-result.component";
 import {LoginComponent} from "./login/login.component";
+import {CreateMeetComponent} from "./create-meet/create-meet.component";
+import {MeetsComponent} from "./meets/meets.component";
+import {ViewMeetComponent} from "./view-meet/view-meet.component";
 
 const routes: Routes = [
   {
@@ -28,6 +31,18 @@ const routes: Routes = [
     resolve: {
       athlete: AthleteResolver,
     },
+  },
+  {
+    path: 'create-meet',
+    component: CreateMeetComponent,
+  },
+  {
+    path: 'meets',
+    component: MeetsComponent,
+  },
+  {
+    path: 'view-meet/:meetId',
+    component: ViewMeetComponent
   },
   {
     path: 'create-result/:id',

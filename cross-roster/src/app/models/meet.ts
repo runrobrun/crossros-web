@@ -1,6 +1,11 @@
 export interface Meet {
-  meetName: string,
-  meetLocation: string,
-  hostSchool: string,
-  cost: number
+  id?: string;
+  archived: boolean;
+  hostSchool: string;
+  meetName: string;
+  locationUrl?: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: number;
 }

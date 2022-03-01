@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Edit Meet</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <input placeholder="Meet Name" matInput formControlName="meetName" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="Host School" matInput formControlName="hostSchool" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="address" matInput formControlName="address" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="city" matInput formControlName="city" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="state" matInput formControlName="state" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="zip" matInput formControlName="zip" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input placeholder="location url" matInput formControlName="locationUrl" />
+  </mat-form-field>
+  <mat-slide-toggle class="archived" color="primary" formControlName="archived"> Is meet archived? </mat-slide-toggle>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Close</button>
+
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.create-meet {
+  margin-top: 20px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.archived {
+  margin-bottom: 20px;
+}

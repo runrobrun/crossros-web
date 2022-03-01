@@ -1,0 +1,20 @@
+<div class="meets-panel">
+  <div class="header">
+    <h2 class="title">Active Meets</h2>
+    <button mat-mini-fab color="accent">
+      <mat-icon class="add-meet-btn" routerLink="/create-meet">add</mat-icon>
+    </button>
+  </div>
+
+  <app-meets-card-list [meets]="activeMeets$ | async"
+                       (meetEdited)="reloadMeets()"
+                       (meetDeleted)="reloadMeets()"></app-meets-card-list>
+
+  <div class="header">
+    <h2 class="title">Inactive Meets</h2>
+  </div>
+
+  <app-meets-card-list [meets]="archivedMeets$ | async"
+                       (meetEdited)="reloadMeets()"
+                      (meetDeleted)="reloadMeets()"></app-meets-card-list>
+</div>
