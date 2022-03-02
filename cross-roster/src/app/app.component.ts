@@ -10,8 +10,7 @@ import {environment} from "../environments/environment";
 })
 export class AppComponent {
 
-  constructor(private db: AngularFirestore,
-              public user: UserService) {
+  constructor(public user: UserService) {
   }
   public uid = this.user.userId$.subscribe((results) => this.uid = results)
   title = 'cross-roster';
