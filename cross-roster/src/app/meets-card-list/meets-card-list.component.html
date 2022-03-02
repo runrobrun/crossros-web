@@ -1,0 +1,23 @@
+<mat-card *ngFor="let meet of meets" class="meet-card">
+  <mat-card-content>
+    <h3>{{ meet.meetName }}</h3>
+    <ng-container *ngIf="!meet.archived">
+      <p>{{ meet.hostSchool }}</p>
+      <p>{{ meet.address }}</p>
+      <p>{{ meet.city }} {{ meet.state }} {{ meet.zip }}</p>
+      <p><a href="{{ meet.locationUrl }}" target="_blank">Link to Map</a></p>
+    </ng-container>
+  </mat-card-content>
+  <mat-card-actions class="meet-actions">
+    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/view-meet', meet.id]">VIEW DETAILS</button>
+    <ng-container>
+      <ng-container>
+        <button mat-button class="mat-raised-button mat-accent meet-edit" (click)="editMeet(meet)">Edit</button>
+
+        <button mat-mini-fab color="warn" (click)="onDeleteMeet(meet)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </ng-container>
+    </ng-container>
+  </mat-card-actions>
+</mat-card>

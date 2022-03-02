@@ -1,0 +1,82 @@
+<div class="create-meet">
+  <h3>Create New Meet</h3>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <input placeholder="Meet Name" matInput formControlName="meetName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="Host School" matInput formControlName="hostSchool" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="address" matInput formControlName="address" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="city" matInput formControlName="city" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-select [(value)]="selected" placeholder="Select state" formControlName="state">
+        <mat-option value="AL">ALABAMA</mat-option>
+        <mat-option value="AK">ALASKA</mat-option>
+        <mat-option value="AZ">ARIZONA</mat-option>
+        <mat-option value="AR">ARKANSAS</mat-option>
+        <mat-option value="CA">CALIFORNIA</mat-option>
+        <mat-option value="CO">COLORADO</mat-option>
+        <mat-option value="CT">CONNECTICUT</mat-option>
+        <mat-option value="DE">DELEWARE</mat-option>
+        <mat-option value="DC">DISTRICT OF COLUMBIA</mat-option>
+        <mat-option value="FL">FLORIDA</mat-option>
+        <mat-option value="GA">GEORGIA</mat-option>
+        <mat-option value="HI">HAWAII</mat-option>
+        <mat-option value="ID">IDAHO</mat-option>
+        <mat-option value="IL">ILLINOIS</mat-option>
+        <mat-option value="IN">INDIANA</mat-option>
+        <mat-option value="IA">IOWA</mat-option>
+        <mat-option value="KS">KANSAS</mat-option>
+        <mat-option value="KY">KENTUCKY</mat-option>
+        <mat-option value="LA">LOUISIANA</mat-option>
+        <mat-option value="ME">MAINE</mat-option>
+        <mat-option value="MD">MARYLAND</mat-option>
+        <mat-option value="MA">MASSACHUSETTS</mat-option>
+        <mat-option value="MI">MICHIGAN</mat-option>
+        <mat-option value="MN">MINNESOTA</mat-option>
+        <mat-option value="MS">MISSISSIPPI</mat-option>
+        <mat-option value="MO">MISSOURI</mat-option>
+        <mat-option value="MT">MONTANA</mat-option>
+        <mat-option value="NE">NEBRASKA</mat-option>
+        <mat-option value="NV">NEVADA</mat-option>
+        <mat-option value="NH">NEW HAMPSHIRE</mat-option>
+        <mat-option value="NJ">NEW JERSEY</mat-option>
+        <mat-option value="NM">NEW MEXICO</mat-option>
+        <mat-option value="NY">NEW YORK</mat-option>
+        <mat-option value="NC">NORTH CAROLINA</mat-option>
+        <mat-option value="ND">NORTH DAKOTA</mat-option>
+        <mat-option value="OH">OHIO</mat-option>
+        <mat-option value="OK">OKLAHOMA</mat-option>
+        <mat-option value="OR">OREGON</mat-option>
+        <mat-option value="PA">PENNSYLVANIA</mat-option>
+        <mat-option value="RI">RHODE ISLAND</mat-option>
+        <mat-option value="SD">SOUTH DAKOTA</mat-option>
+        <mat-option value="SC">SOUTH CAROLINA</mat-option>
+        <mat-option value="TN">TENNESSEE</mat-option>
+        <mat-option value="TX">TEXAS</mat-option>
+        <mat-option value="UT">UTAH</mat-option>
+        <mat-option value="VT">VERMONT</mat-option>
+        <mat-option value="VA">VIRGINIA</mat-option>
+        <mat-option value="WA">WASHINGTON</mat-option>
+        <mat-option value="WV">WEST VIRGINIA</mat-option>
+        <mat-option value="WI">WISCONSIN</mat-option>
+        <mat-option value="WY">WYOMING</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="zip" matInput formControlName="zip" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="location url" matInput formControlName="locationUrl" />
+    </mat-form-field>
+    <mat-slide-toggle class="archived" color="primary" formControlName="archived">
+      Is meet archived?
+    </mat-slide-toggle>
+    <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onCreateMeet()">Create Meet</button>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+<div class="meet-panel">
+  <mat-card class="meet-card mat-elevation-z10">
+    <mat-card-header>
+      <mat-card-title>{{(meet$ | async)?.meetName}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-xs-4 mdl-textfield--align-right">Host School: </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7"> {{(meet$ | async)?.hostSchool}}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 mdl-textfield--align-right">address: </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7"> {{(meet$ | async)?.address}}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 mdl-textfield--align-right">city: </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7">{{(meet$ | async)?.city}}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 mdl-textfield--align-right">state: </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7">{{(meet$ | async)?.state}}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 mdl-textfield--align-right">zip: </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7">{{(meet$ | async)?.zip}}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 mdl-textfield--align-right">is Archived?: </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7">{{(meet$ | async)?.archived}}</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+          <button mat-button class="mat-raised-button mat-accent" routerLink="/meets">
+            BACK TO MEETS
+          </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
