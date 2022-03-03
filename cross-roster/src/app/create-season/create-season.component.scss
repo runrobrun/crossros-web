@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.create-season {
+  margin-top: 20px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  min-height: calc(100vh - 148px);
+}
+
+.save-season-button {
+  margin-bottom: 20px;
+}

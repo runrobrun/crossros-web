@@ -3,6 +3,11 @@
   <mat-sidenav #start (click)="start.close()">
     <mat-nav-list>
 
+      <a mat-list-item [routerLink]="['/seasons', activeSeason]">
+        <mat-icon>event</mat-icon>
+        <span>Season</span>
+      </a>
+
       <a mat-list-item routerLink="/" *ngIf="user.isLoggedIn$ | async">
         <mat-icon>library_books</mat-icon>
         <span>Athletes</span>

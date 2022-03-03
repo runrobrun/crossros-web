@@ -43,6 +43,8 @@ import { MeetsComponent } from './meets/meets.component';
 import { MeetsCardListComponent } from './meets-card-list/meets-card-list.component';
 import { EditMeetDialogComponent } from './edit-meet-dialog/edit-meet-dialog.component';
 import { ViewMeetComponent } from './view-meet/view-meet.component';
+import { SeasonComponent } from './season/season.component';
+import { CreateSeasonComponent } from './create-season/create-season.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { ViewMeetComponent } from './view-meet/view-meet.component';
     MeetsComponent,
     MeetsCardListComponent,
     EditMeetDialogComponent,
-    ViewMeetComponent
+    ViewMeetComponent,
+    SeasonComponent,
+    CreateSeasonComponent
   ],
   imports: [
     BrowserModule,
