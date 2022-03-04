@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       let uid = cred.auth().currentUser.uid;
       if (this.userExists(uid)) {
         return this.db.collection(`users`).doc(uid)
-          .set({admin: false});
+          .set({});
       } else {
         return null;
       }
