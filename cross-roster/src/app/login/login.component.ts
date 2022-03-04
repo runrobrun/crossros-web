@@ -5,6 +5,8 @@ import {Router} from "@angular/router";
 import firebase from "firebase/compat/app";
 import EmailAuthProvider = firebase.auth.EmailAuthProvider;
 import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
+import {map} from "rxjs";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
   constructor(private afAuth: AngularFireAuth,
-              private router: Router) { }
+              private router: Router,
+              private db: AngularFirestore) { }
 
   ngOnInit(): void {
     this.afAuth.app.then(app => {
@@ -40,7 +43,25 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.ui.delete();
   }
 
-  onLoginSuccessful(result) {
+  userExists(uid: string) {
+    return this.db.firestore.doc(`/users/${uid}`).get()
+      .then(docSnapshot => {
+        console.log("snapshot exists", docSnapshot.exists);
+        return docSnapshot.exists;
+      });
+  }
+
+  onLoginSuccessful() {
+
+    this.afAuth.app.then(cred => {
+      let uid = cred.auth().currentUser.uid;
+      if (this.userExists(uid)) {
+        return this.db.collection(`users`).doc(uid)
+          .set({});
+      } else {
+        return null;
+      }
+    })
     this.router.navigateByUrl('/')
   }
 

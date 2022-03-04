@@ -28,7 +28,4 @@ export class UserService {
     this.afAuth.signOut();
     this.router.navigateByUrl('/login');
   }
-
-
-
 }
