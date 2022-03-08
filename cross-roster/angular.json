@@ -75,7 +75,8 @@
               "browserTarget": "cross-roster:build:production"
             },
             "development": {
-              "browserTarget": "cross-roster:build:development"
+              "browserTarget": "cross-roster:build:development",
+              "port": 18000
             }
           },
           "defaultConfiguration": "development"

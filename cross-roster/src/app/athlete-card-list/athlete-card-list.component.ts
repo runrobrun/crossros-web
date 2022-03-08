@@ -4,6 +4,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {EditAthleteDialogComponent} from "../edit-athlete-dialog/edit-athlete-dialog.component";
 import {AthletesService} from "../services/athletes.service";
 import {catchError, tap, throwError} from "rxjs";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-athlete-card-list',
@@ -22,7 +23,8 @@ export class AthleteCardListComponent implements OnInit {
   athleteDeleted = new EventEmitter<Athlete>();
 
   constructor(private dialog: MatDialog,
-              private athletesService:AthletesService) { }
+              private athletesService:AthletesService,
+              public user: UserService) { }
 
   ngOnInit(): void {
   }
