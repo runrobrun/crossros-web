@@ -64,6 +64,15 @@ export class AthletesService {
       );
   }
 
+  loadActiveAthletesByGender(gender: string): Observable<Athlete[]> {
+    return this.db
+      .collection('athletes', (ref) => ref.where('gender', '==', gender)
+        .where('active', '==', true)
+        .orderBy('lastName'))
+      .get()
+      .pipe(map((result) => convertSnaps<Athlete>(result)));
+  }
+
   createResult(newResult: Partial<Result>, resultId: string, athleteId: string) {
     let saveResult$: Observable<any>;
 
@@ -95,4 +104,5 @@ export class AthletesService {
         map(meetResults => convertSnaps<Result>(meetResults))
       )
   }
+
 }

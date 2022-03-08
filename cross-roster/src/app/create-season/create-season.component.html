@@ -1,0 +1,30 @@
+<div class="create-season">
+  <h3>Create/Activate New Season</h3>
+  <form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Season Start Date</mat-label>
+        <input matInput [matDatepicker]="seasonStartDatePicker" formControlName="startDate" />
+        <mat-datepicker-toggle matSuffix [for]="seasonStartDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #seasonStartDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Season End Date</mat-label>
+        <input matInput [matDatepicker]="seasonEndDatePicker" formControlName="endDate" />
+        <mat-datepicker-toggle matSuffix [for]="seasonEndDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #seasonEndDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input placeholder="Season Year" matInput formControlName="seasonYear" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input placeholder="Season Theme" matInput formControlName="seasonTheme" />
+      </mat-form-field>
+      <mat-slide-toggle class="active" color="primary" formControlName="active">
+        Is season active?
+      </mat-slide-toggle>
+    <button mat-raised-button color="warn" class="save-season-button" [disabled]="!form.valid" (click)="onCreateSeason()">
+      Create Season
+    </button>
+  </form>
+</div>
+

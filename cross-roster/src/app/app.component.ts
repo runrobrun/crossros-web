@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {UserService} from "./services/user.service";
 import {environment} from "../environments/environment";
+import {GlobalSettings} from "./global-settings";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
   }
   public uid = this.user.userId$.subscribe((results) => this.uid = results)
   title = 'cross-roster';
-  activeSeason: any;
+  public activeSeason = GlobalSettings.activeSeason;
   version: any = environment.version;
 
   logout() {

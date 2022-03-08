@@ -11,6 +11,9 @@ import {LoginComponent} from "./login/login.component";
 import {CreateMeetComponent} from "./create-meet/create-meet.component";
 import {MeetsComponent} from "./meets/meets.component";
 import {ViewMeetComponent} from "./view-meet/view-meet.component";
+import {SeasonComponent} from "./season/season.component";
+import {SeasonResolver} from "./services/season.resolver";
+import {CreateSeasonComponent} from "./create-season/create-season.component";
 
 const routes: Routes = [
   {
@@ -33,6 +36,10 @@ const routes: Routes = [
     },
   },
   {
+    path: 'create-season',
+    component: CreateSeasonComponent
+  },
+  {
     path: 'create-meet',
     component: CreateMeetComponent,
   },
@@ -47,6 +54,13 @@ const routes: Routes = [
   {
     path: 'create-result/:id',
     component: CreateResultComponent,
+  },
+  {
+    path: `seasons/:seasonYear`,
+    component: SeasonComponent,
+    resolve: {
+      season: SeasonResolver,
+    },
   },
   {
     path: 'about',
