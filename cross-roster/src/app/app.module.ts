@@ -43,6 +43,7 @@ import { MeetsComponent } from './meets/meets.component';
 import { MeetsCardListComponent } from './meets-card-list/meets-card-list.component';
 import { EditMeetDialogComponent } from './edit-meet-dialog/edit-meet-dialog.component';
 import { ViewMeetComponent } from './view-meet/view-meet.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ViewMeetComponent } from './view-meet/view-meet.component';
     MeetsComponent,
     MeetsCardListComponent,
     EditMeetDialogComponent,
-    ViewMeetComponent
+    ViewMeetComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

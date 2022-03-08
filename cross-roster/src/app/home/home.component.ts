@@ -3,6 +3,7 @@ import {finalize, Observable} from "rxjs";
 import {Athlete} from "../models/athlete";
 import {Router} from "@angular/router";
 import {AthletesService} from "../services/athletes.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private athletesService: AthletesService) { }
+    private athletesService: AthletesService,
+    public user: UserService) { }
 
   ngOnInit(): void {
     this.loading = true;

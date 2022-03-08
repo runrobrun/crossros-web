@@ -11,6 +11,10 @@ import {LoginComponent} from "./login/login.component";
 import {CreateMeetComponent} from "./create-meet/create-meet.component";
 import {MeetsComponent} from "./meets/meets.component";
 import {ViewMeetComponent} from "./view-meet/view-meet.component";
+import {CreateUserComponent} from "./create-user/create-user.component";
+import {AngularFireAuthGuard, hasCustomClaim} from "@angular/fire/compat/auth-guard";
+
+const adminOnly = () => hasCustomClaim("admin");
 
 const routes: Routes = [
   {
@@ -31,6 +35,14 @@ const routes: Routes = [
     resolve: {
       athlete: AthleteResolver,
     },
+  },
+  {
+    path: 'create-user',
+    component: CreateUserComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: adminOnly
+    }
   },
   {
     path: 'create-meet',

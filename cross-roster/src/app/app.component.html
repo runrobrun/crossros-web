@@ -26,6 +26,10 @@
         <mat-icon>person_add</mat-icon>
         <span>Register</span>
       </a>
+      <a mat-list-item routerLink="/create-user">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>Create user</span>
+      </a>
 
       <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
         <mat-icon>account_circle</mat-icon>

@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {EditMeetDialogComponent} from "../edit-meet-dialog/edit-meet-dialog.component";
 import {catchError, tap, throwError} from "rxjs";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-meets-card-list',
@@ -23,7 +24,10 @@ export class MeetsCardListComponent implements OnInit {
   meetDeleted = new EventEmitter<Meet>();
 
 
-  constructor(private dialog: MatDialog, private router: Router, private meetsService: MeetsService) { }
+  constructor(private dialog: MatDialog,
+              private router: Router,
+              private meetsService: MeetsService,
+              public user: UserService) { }
 
   ngOnInit(): void {
   }

@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Meet} from "../models/meet";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {MeetsService} from "../services/meets.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-meets',
@@ -13,7 +14,9 @@ export class MeetsComponent implements OnInit {
   activeMeets$: Observable<Meet[]>;
   archivedMeets$: Observable<Meet[]>;
 
-  constructor(private db: AngularFirestore, private meetsService: MeetsService) { }
+  constructor(private db: AngularFirestore,
+              private meetsService: MeetsService,
+              public user: UserService) { }
 
   ngOnInit(): void {
     this.reloadMeets();
