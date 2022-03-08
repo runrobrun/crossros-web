@@ -1,0 +1,57 @@
+<div class="season" *ngIf="season">
+  <h2>Pella Cross Country {{ season.seasonYear }} Season</h2>
+  <p class="theme">Theme: {{ season.seasonTheme }}</p>
+  <p class="theme">Active?: {{ season.active }}</p>
+  <div class="row">
+    <div class="col-xs-6">
+      <h3>Boys Roster</h3>
+      <div *ngFor="let athlete of maleAthletes$ | async">
+        <a [routerLink]="['/athletes', athlete.profileUrl]">{{athlete.firstName}} {{athlete.lastName}}</a>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h3>Girls Roster</h3>
+      <div *ngFor="let athlete of femaleAthletes$ | async">
+        <a [routerLink]="['/athletes', athlete.profileUrl]"> {{athlete.firstName}} {{athlete.lastName}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="message">Not seeing an athlete? They may be set to inactive. Click here to see all inactive athletes.</p>
+    </div>
+  </div>
+  <h3>Scheduled Meets</h3>
+  <mat-table [dataSource]="seasonMeets$ | async" class="meets-table">
+    <ng-container matColumnDef="meetName">
+      <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
+      <mat-cell *matCellDef="let meet">{{ meet.meetName }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef>Meet Date</mat-header-cell>
+      <mat-cell *matCellDef="let meet">{{ meet.dateTime.toDate() | date: 'MM/dd/yyyy h:mm a'}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <ng-container *ngIf="(seasonMeets$ | async)?.length < 1">
+    <p>NO MEETS YET</p>
+    <p>Create Schedule Now</p>
+  </ng-container>
+  <mat-divider class="footer-divider"></mat-divider>
+  <mat-card color="warn">
+    <mat-card-title>Use with Caution</mat-card-title>
+    <mat-card-content>
+      <ng-container>
+        <p>Use this feature cautiously. There can only be one active season at a time. If you are done with the season click away!</p>
+      </ng-container>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-slide-toggle class="active" color="primary" checked="{{season.active}}" (change)="onToggleSeason(season.active)">
+        set active season to {{!season.active}}?
+      </mat-slide-toggle>
+    </mat-card-actions>
+  </mat-card>
+   <div *ngIf="!season" class="season">No Active season found. <a routerLink="/create-season">Create one now?</a> See Archived seasons?</div>
+</div>

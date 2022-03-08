@@ -14,6 +14,9 @@ import {ViewMeetComponent} from "./view-meet/view-meet.component";
 import {CreateUserComponent} from "./create-user/create-user.component";
 import {AngularFireAuthGuard, hasCustomClaim} from "@angular/fire/compat/auth-guard";
 
+import {Component} from "./season/season.component";
+import {SeasonResolver} from "./services/season.resolver";
+import {CreateSeasonComponent} from "./create-season/create-season.component";
 const adminOnly = () => hasCustomClaim("admin");
 
 const routes: Routes = [
@@ -45,6 +48,10 @@ const routes: Routes = [
     }
   },
   {
+    path: 'create-season',
+    component: CreateSeasonComponent
+  },
+  {
     path: 'create-meet',
     component: CreateMeetComponent,
   },
@@ -59,6 +66,13 @@ const routes: Routes = [
   {
     path: 'create-result/:id',
     component: CreateResultComponent,
+  },
+  {
+    path: `seasons/:seasonYear`,
+    component: SeasonComponent,
+    resolve: {
+      season: SeasonResolver,
+    },
   },
   {
     path: 'about',

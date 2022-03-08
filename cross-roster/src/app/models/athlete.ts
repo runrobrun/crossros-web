@@ -25,4 +25,5 @@ export interface Athlete {
   physicalExpiryDate?: Timestamp;
   bio?: string;
   notes?: string;
+  activeSeasons?: [];
 }
