@@ -14,7 +14,7 @@ import {ViewMeetComponent} from "./view-meet/view-meet.component";
 import {CreateUserComponent} from "./create-user/create-user.component";
 import {AngularFireAuthGuard, hasCustomClaim} from "@angular/fire/compat/auth-guard";
 
-import {Component} from "./season/season.component";
+import {SeasonComponent} from "./season/season.component";
 import {SeasonResolver} from "./services/season.resolver";
 import {CreateSeasonComponent} from "./create-season/create-season.component";
 const adminOnly = () => hasCustomClaim("admin");
