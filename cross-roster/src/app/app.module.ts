@@ -15,7 +15,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
-import {AppRoutingModule} from './app-routing.module';
 import {MatTabsModule} from "@angular/material/tabs";
 import { AboutComponent } from './about/about.component';
 import { AthleteCardListComponent } from './athlete-card-list/athlete-card-list.component';
@@ -25,6 +24,7 @@ import { CreateAthleteComponent } from './create-athlete/create-athlete.componen
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { AppRoutes } from './app.routing';
 import {MatSelectModule} from "@angular/material/select";
 import {MatCommonModule, MatNativeDateModule} from '@angular/material/core';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -73,9 +73,9 @@ import { CreateSeasonComponent } from './create-season/create-season.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AppRoutingModule,
     MatCommonModule,
     MatNativeDateModule,
+    RouterModule.forRoot(AppRoutes),
     AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, MaterialFileInputModule, MatProgressBarModule, // storage
   ],
   providers: [
