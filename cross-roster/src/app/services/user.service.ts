@@ -33,5 +33,6 @@ export class UserService {
   logout() {
     this.afAuth.signOut();
     this.router.navigateByUrl('/');
+    console.log('redirected...')
   }
 }
