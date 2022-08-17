@@ -6,49 +6,52 @@
         <mat-icon>home</mat-icon>
         <span>Team Home</span>
       </a>
+      <ng-container *ngIf="(user.roles$ | async) as roles">
+          <a mat-list-item [routerLink]="['/seasons', activeSeason]" *ngIf="roles.admin">
+            <mat-icon>event</mat-icon>
+            <span>Season</span>
+          </a>
 
-      <a mat-list-item [routerLink]="['/seasons', activeSeason]" *ngIf="user.isLoggedIn$ | async">
-        <mat-icon>event</mat-icon>
-        <span>Season</span>
-      </a>
 
-      <a mat-list-item routerLink="/" *ngIf="user.isLoggedIn$ | async">
-        <mat-icon>library_books</mat-icon>
-        <span>Athletes</span>
-      </a>
+        <a mat-list-item routerLink="/" *ngIf="roles.admin">
+          <mat-icon>library_books</mat-icon>
+          <span>Athletes</span>
+        </a>
 
-      <a mat-list-item routerLink="/create-user" *ngIf="user.isLoggedIn$ | async" >
-        <mat-icon>add_circle_outline</mat-icon>
-        <span>Create user</span>
-      </a>
+        <a mat-list-item routerLink="/create-user" *ngIf="roles.admin" >
+          <mat-icon>add_circle_outline</mat-icon>
+          <span>Create user</span>
+        </a>
 
-      <a mat-list-item routerLink="/meets" *ngIf="user.isLoggedIn$ | async">
-        <mat-icon>add_location</mat-icon>
-        <span>Meets</span>
-      </a>
+        <a mat-list-item routerLink="/meets" *ngIf="roles.admin">
+          <mat-icon>add_location</mat-icon>
+          <span>Meets</span>
+        </a>
+        <a mat-list-item routerLink="/create-user" *ngIf="roles.admin">
+          <mat-icon>add_circle_outline</mat-icon>
+          <span>Create user</span>
+        </a>
+      </ng-container>
 
-      <a mat-list-item routerLink="about">
-        <mat-icon>question_answer</mat-icon>
-        <span>About</span>
-      </a>
-      <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
-        <mat-icon>person_add</mat-icon>
-        <span>Register</span>
-      </a>
-      <a mat-list-item routerLink="/create-user" *ngIf="user.isLoggedIn$ | async">
-        <mat-icon>add_circle_outline</mat-icon>
-        <span>Create user</span>
-      </a>
+        <a mat-list-item routerLink="about">
+          <mat-icon>question_answer</mat-icon>
+          <span>About</span>
+        </a>
+        <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
+          <mat-icon>person_add</mat-icon>
+          <span>Register</span>
+        </a>
 
-      <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
-        <mat-icon>account_circle</mat-icon>
-        <span>Login</span>
-      </a>
 
-      <a mat-list-item *ngIf="user.isLoggedIn$ | async" (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
-      </a>
+        <a mat-list-item routerLink="login" *ngIf="user.isLoggedOut$ | async">
+          <mat-icon>account_circle</mat-icon>
+          <span>Login</span>
+        </a>
+
+        <a mat-list-item *ngIf="user.isLoggedIn$ | async" (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </a>
 
     </mat-nav-list>
 
