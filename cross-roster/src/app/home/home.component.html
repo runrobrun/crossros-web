@@ -10,24 +10,36 @@
     </ng-container>
   </div>
   <mat-tab-group>
-    <mat-tab label="loading" *ngIf="loading">
-      <div class="spinner-container" *ngIf="loading">
-        <mat-spinner></mat-spinner>
-      </div>
-    </mat-tab>
+    <ng-container *ngIf="user.isLoggedIn$ | async">
+      <mat-tab label="loading" *ngIf="loading">
+        <div class="spinner-container" *ngIf="loading">
+          <mat-spinner></mat-spinner>
+        </div>
+      </mat-tab>
+    </ng-container>
     <mat-tab label="Boys">
-      <app-athlete-card-list [athletes]="maleAthletes$ | async"
-                             (athleteEdited)="reloadAthletes()"
-                             (athleteDeleted)="reloadAthletes()">
+      <ng-container *ngIf="user.isLoggedIn$ | async">
+        <app-athlete-card-list [athletes]="maleAthletes$ | async"
+                               (athleteEdited)="reloadAthletes()"
+                               (athleteDeleted)="reloadAthletes()">
 
-      </app-athlete-card-list>
+        </app-athlete-card-list>
+      </ng-container>
+      <ng-container *ngIf="user.isLoggedOut$ | async">
+        <h3>Please login to view athletes</h3>
+      </ng-container>
     </mat-tab>
     <mat-tab label="Girls">
-      <app-athlete-card-list [athletes]="femaleAthletes$ | async"
-                             (athleteEdited)="reloadAthletes()"
-                             (athleteDeleted)="reloadAthletes()">
+      <ng-container *ngIf="user.isLoggedIn$ | async">
+        <app-athlete-card-list [athletes]="femaleAthletes$ | async"
+                               (athleteEdited)="reloadAthletes()"
+                               (athleteDeleted)="reloadAthletes()">
 
-      </app-athlete-card-list>
+        </app-athlete-card-list>
+      </ng-container>
+      <ng-container *ngIf="user.isLoggedOut$ | async">
+        <h3>Please login to view athletes</h3>
+      </ng-container>
     </mat-tab>
   </mat-tab-group>
 </div>
