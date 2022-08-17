@@ -16,11 +16,12 @@
   </mat-card-content>
 
   <mat-card-actions class="athlete-actions">
-    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/athletes', athlete.profileUrl]">
-      VIEW DETAILS
-    </button>
     <ng-container *ngIf="(user.roles$ | async) as roles">
       <ng-container *ngIf="roles.admin">
+        <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/athletes', athlete.profileUrl]">
+          VIEW DETAILS
+        </button>
+
         <button mat-button class="mat-raised-button mat-accent" (click)="editAthlete(athlete)">
           EDIT
         </button>
