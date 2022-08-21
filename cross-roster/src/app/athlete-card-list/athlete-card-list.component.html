@@ -12,7 +12,7 @@
     <img mat-card-image src="/assets/blank-profile-picture.png" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
   </div>
   <mat-card-content>
-    <p>{{athlete.gradYear}}</p>
+    <h3>Year: {{getYear(athlete.gradYear)}}</h3>
   </mat-card-content>
 
   <mat-card-actions class="athlete-actions">

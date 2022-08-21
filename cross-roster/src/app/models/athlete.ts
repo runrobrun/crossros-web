@@ -26,4 +26,5 @@ export interface Athlete {
   bio?: string;
   notes?: string;
   activeSeasons?: [];
+  class?: '';
 }

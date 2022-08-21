@@ -24,9 +24,12 @@ export class AthleteCardListComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private athletesService:AthletesService,
-              public user: UserService) { }
+              public user: UserService) {
+
+  }
 
   ngOnInit(): void {
+
   }
 
   editAthlete(athlete: Athlete): void {
@@ -64,6 +67,19 @@ export class AthleteCardListComponent implements OnInit {
         )
         .subscribe()
 
+    }
+  }
+
+  getYear(gradYear: number): string {
+    let currentYear = new Date().getFullYear();
+    if (gradYear - currentYear === 1) {
+      return 'Senior';
+    } else if (gradYear - currentYear === 2) {
+      return 'Junior';
+    } else if (gradYear - currentYear === 3) {
+      return 'Sophomore';
+    } else {
+      return 'Freshman'
     }
   }
 }
