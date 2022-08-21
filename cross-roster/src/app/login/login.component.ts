@@ -7,6 +7,7 @@ import EmailAuthProvider = firebase.auth.EmailAuthProvider;
 import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 import {map} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private afAuth: AngularFireAuth,
               private router: Router,
-              private db: AngularFirestore) { }
+              private db: AngularFirestore,
+              public authService: AuthService) { }
 
   ngOnInit(): void {
     this.afAuth.app.then(app => {
