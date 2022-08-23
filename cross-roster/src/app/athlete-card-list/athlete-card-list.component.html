@@ -1,36 +1,41 @@
-<mat-card *ngFor="let athlete of athletes" class="athlete-card mat-elevation-z10">
+<ng-container *ngIf="athletes">
+  <mat-card *ngFor="let athlete of athletes" class="athlete-card mat-elevation-z10">
 
-  <mat-card-header>
+    <mat-card-header>
 
-    <mat-card-title>{{athlete.firstName}} {{athlete.lastName}}</mat-card-title>
+      <mat-card-title>{{athlete.firstName}} {{athlete.lastName}}</mat-card-title>
 
-  </mat-card-header>
-  <div *ngIf="athlete.profileImageUrl" class="profile-image">
-    <img mat-card-image [src]="athlete.profileImageUrl" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
-  </div>
-  <div *ngIf="!athlete.profileImageUrl" class="profile-image">
-    <img mat-card-image src="/assets/blank-profile-picture.png" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
-  </div>
-  <mat-card-content>
-    <h3>Year: {{getYear(athlete.gradYear)}}</h3>
-  </mat-card-content>
+    </mat-card-header>
+    <div *ngIf="athlete.profileImageUrl" class="profile-image">
+      <img mat-card-image [src]="athlete.profileImageUrl" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
+    </div>
+    <div *ngIf="!athlete.profileImageUrl" class="profile-image">
+      <img mat-card-image src="/assets/blank-profile-picture.png" title="{{athlete.firstName}} {{athlete.lastName}}" alt="{{athlete.firstName}} {{athlete.lastName}}">
+    </div>
+    <mat-card-content>
+      <h3>Year: {{getYear(athlete.gradYear)}}</h3>
+    </mat-card-content>
 
-  <mat-card-actions class="athlete-actions">
-    <ng-container *ngIf="(user.roles$ | async) as roles">
-      <ng-container *ngIf="roles.admin">
-        <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/athletes', athlete.profileUrl]">
-          VIEW DETAILS
-        </button>
+    <mat-card-actions class="athlete-actions">
+      <ng-container *ngIf="(user.roles$ | async) as roles">
+        <ng-container *ngIf="roles.admin">
+          <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/athletes', athlete.profileUrl]">
+            VIEW DETAILS
+          </button>
 
-        <button mat-button class="mat-raised-button mat-accent" (click)="editAthlete(athlete)">
-          EDIT
-        </button>
-        <button mat-mini-fab color="warn" (click)="onDeleteAthletes(athlete)">
-          <mat-icon>delete</mat-icon>
-        </button>
+          <button mat-button class="mat-raised-button mat-accent" (click)="editAthlete(athlete)">
+            EDIT
+          </button>
+          <button mat-mini-fab color="warn" (click)="onDeleteAthletes(athlete)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container>
       </ng-container>
-    </ng-container>
 
-  </mat-card-actions>
+    </mat-card-actions>
 
-</mat-card>
+  </mat-card>
+</ng-container>
+<ng-container *ngIf="!athletes">
+  <h3>No Athletes found</h3>
+</ng-container>
