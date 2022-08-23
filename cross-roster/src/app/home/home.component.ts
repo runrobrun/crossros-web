@@ -14,8 +14,9 @@ export class HomeComponent implements OnInit {
   loading: boolean = false;
 
   maleAthletes$: Observable<Athlete[]> | undefined
-
   femaleAthletes$: Observable<Athlete[]> | undefined
+  maleAthletesByClass$: Observable<Athlete[]> | undefined
+  femaleAthletesByClass$: Observable<Athlete[]> | undefined
 
   constructor(
     private router: Router,
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.reloadAthletes();
+    this.loadMaleAthletesByClass(undefined);
+    this.loadFemaleAthletesByClass(undefined);
   }
 
   reloadAthletes() {
@@ -33,6 +35,20 @@ export class HomeComponent implements OnInit {
     );
 
     this.femaleAthletes$ = this.athletesService.loadAthletesByGender('FEMALE').pipe(
+      finalize(() => this.loading = false)
+    );
+  }
+
+  loadFemaleAthletesByClass(classToShow) {
+    this.loading = true;
+    this.femaleAthletesByClass$ = this.athletesService.loadFemaleAthletesByClass(classToShow).pipe(
+      finalize(() => this.loading = false)
+    );
+  }
+
+  loadMaleAthletesByClass(classToShow) {
+    this.loading = true;
+    this.maleAthletesByClass$ = this.athletesService.loadMaleAthletesByClass(classToShow).pipe(
       finalize(() => this.loading = false)
     );
   }

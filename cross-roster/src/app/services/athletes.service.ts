@@ -105,4 +105,49 @@ export class AthletesService {
       )
   }
 
+  loadMaleAthletesByClass(classToShow) {
+    if (!classToShow) {
+      return this.db.collection(
+        'athletes',
+        ref => ref.where('gender', '==', 'MALE')
+          .orderBy('lastName', 'asc'))
+        .get()
+        .pipe(
+          map(result => convertSnaps<Athlete>(result))
+        )
+    } else {
+      return this.db.collection(
+        'athletes',
+        ref => ref.where('gender', '==', 'MALE')
+          .where('gradYear', '==', classToShow)
+          .orderBy('lastName', 'asc'))
+        .get()
+        .pipe(
+          map(result => convertSnaps<Athlete>(result))
+        )
+    }
+  }
+
+  loadFemaleAthletesByClass(classToShow) {
+    if (!classToShow) {
+      return this.db.collection(
+        'athletes',
+        ref => ref.where('gender', '==', 'FEMALE')
+          .orderBy('lastName', 'asc'))
+        .get()
+        .pipe(
+          map(result => convertSnaps<Athlete>(result))
+        )
+    } else {
+      return this.db.collection(
+        'athletes',
+        ref => ref.where('gender', '==', 'FEMALE')
+          .where('gradYear', '==', classToShow)
+          .orderBy('lastName', 'asc'))
+        .get()
+        .pipe(
+          map(result => convertSnaps<Athlete>(result))
+        )
+    }
+  }
 }

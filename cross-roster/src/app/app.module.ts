@@ -46,6 +46,7 @@ import { ViewMeetComponent } from './view-meet/view-meet.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { SeasonComponent } from './season/season.component';
 import { CreateSeasonComponent } from './create-season/create-season.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -68,16 +69,16 @@ import { CreateSeasonComponent } from './create-season/create-season.component';
     CreateSeasonComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    MatCommonModule,
-    MatNativeDateModule,
-    RouterModule.forRoot(AppRoutes),
-    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, MaterialFileInputModule, MatProgressBarModule, // storage
-  ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule, // firestore
+        AngularFireAuthModule, // auth
+        MatCommonModule,
+        MatNativeDateModule,
+        RouterModule.forRoot(AppRoutes),
+        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, MaterialFileInputModule, MatProgressBarModule, MatButtonToggleModule, // storage
+    ],
   providers: [
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['http://localhost', 9099] : undefined },
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }
