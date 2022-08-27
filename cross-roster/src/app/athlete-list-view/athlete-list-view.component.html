@@ -1,0 +1,27 @@
+<div class="athletes-panel">
+
+  <table mat-table [dataSource]="allActiveAthletes$ | async" class="mat-elevation-z8 athlete-list">
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="gradYear">
+      <th mat-header-cell *matHeaderCellDef>Grad Year</th>
+      <td mat-cell *matCellDef="let element">{{element.gradYear}}</td>
+    </ng-container>
+    <ng-container matColumnDef="bagNumber">
+      <th mat-header-cell *matHeaderCellDef>Bag  #</th>
+      <td mat-cell *matCellDef="let element">{{element.bagNumber}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+</div>
+

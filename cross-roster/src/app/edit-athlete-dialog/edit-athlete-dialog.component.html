@@ -1,6 +1,20 @@
 <h2 mat-dialog-title>Edit Athlete</h2>
 
 <mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Upload Image</mat-label>
+    <ngx-mat-file-input (change)="uploadThumbnail($event)"></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <img class="athlete-thumbnail mat-elevation-z2" *ngIf="profileEditImageUrl"
+       [src]="profileEditImageUrl">
+  <div class="upload-progress" *ngIf="(percentageChanges$ | async) as percentage">
+    <mat-progress-bar class="progress-bar"
+                      mode="determinate"
+                      [value]="percentage">
+    </mat-progress-bar>
+    <span>{{percentage / 100 | percent}}</span>
+  </div>
   <mat-form-field appearance="outline">
     <input placeholder="First Name" matInput formControlName="firstName" />
   </mat-form-field>

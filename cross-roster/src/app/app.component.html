@@ -23,6 +23,11 @@
           <span>Create user</span>
         </a>
 
+        <a mat-list-item routerLink="/athletes-list" *ngIf="roles.admin" >
+          <mat-icon>view_list</mat-icon>
+          <span>View List</span>
+        </a>
+
         <a mat-list-item routerLink="/meets" *ngIf="roles.admin">
           <mat-icon>add_location</mat-icon>
           <span>Meets</span>
