@@ -47,6 +47,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { SeasonComponent } from './season/season.component';
 import { CreateSeasonComponent } from './create-season/create-season.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { AthleteListViewComponent } from './athlete-list-view/athlete-list-view.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ViewMeetComponent,
     CreateUserComponent,
     SeasonComponent,
-    CreateSeasonComponent
+    CreateSeasonComponent,
+    AthleteListViewComponent
 
   ],
     imports: [

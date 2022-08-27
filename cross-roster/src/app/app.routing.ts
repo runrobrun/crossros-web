@@ -14,6 +14,7 @@ import {CreateResultComponent} from "./create-result/create-result.component";
 import {SeasonComponent} from "./season/season.component";
 import {SeasonResolver} from "./services/season.resolver";
 import {AboutComponent} from "./about/about.component";
+import {AthleteListViewComponent} from './athlete-list-view/athlete-list-view.component';
 const adminOnly = () => hasCustomClaim("admin");
 
 export const AppRoutes: Routes = [
@@ -24,6 +25,10 @@ export const AppRoutes: Routes = [
   {
     path: 'create-athlete',
     component: CreateAthleteComponent
+  },
+  {
+    path: 'athletes-list',
+    component: AthleteListViewComponent
   },
   {
     path: 'login',
