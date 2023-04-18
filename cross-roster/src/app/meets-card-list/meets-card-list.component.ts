@@ -2,7 +2,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Meet} from "../models/meet";
 import {MeetsService} from "../services/meets.service";
 import {Router} from "@angular/router";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig} from "@angular/material/legacy-dialog";
 import {EditMeetDialogComponent} from "../edit-meet-dialog/edit-meet-dialog.component";
 import {catchError, tap, throwError} from "rxjs";
 import {UserService} from "../services/user.service";

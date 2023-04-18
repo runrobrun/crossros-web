@@ -1,6 +1,6 @@
 import {Component, Input, EventEmitter, OnInit, Output} from '@angular/core';
 import {Athlete} from "../models/athlete";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig} from "@angular/material/legacy-dialog";
 import {EditAthleteDialogComponent} from "../edit-athlete-dialog/edit-athlete-dialog.component";
 import {AthletesService} from "../services/athletes.service";
 import {catchError, tap, throwError} from "rxjs";
