@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {GlobalSettings} from "../global-settings";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {SeasonsService} from "../services/seasons.service";
@@ -23,7 +23,7 @@ export class CreateSeasonComponent implements OnInit {
   private seasonId;
 
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private afs: AngularFirestore,
               private seasonsService: SeasonsService,
               private router: Router) { }

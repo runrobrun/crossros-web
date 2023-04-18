@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Result} from "../models/result";
 import {AthletesService} from "../services/athletes.service";
@@ -28,7 +28,7 @@ export class CreateResultComponent implements OnInit {
   });
   private resultId: string;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private afs: AngularFirestore,
               private athletesService: AthletesService,
               private route: ActivatedRoute,

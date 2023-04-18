@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {Meet} from "../models/meet";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MeetsService} from "../services/meets.service";
@@ -10,12 +10,12 @@ import {MeetsService} from "../services/meets.service";
   styleUrls: ['./edit-meet-dialog.component.scss']
 })
 export class EditMeetDialogComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   meet: Meet;
 
   constructor(
     private dialogRef: MatDialogRef<EditMeetDialogComponent>,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     @Inject(MAT_DIALOG_DATA) meet: Meet,
     private meetsService: MeetsService
   ) {

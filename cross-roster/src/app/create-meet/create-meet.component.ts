@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Meet} from "../models/meet";
 import {MeetsService} from "../services/meets.service";
@@ -25,7 +25,7 @@ export class CreateMeetComponent implements OnInit {
   private meetId: string;
   selected = 'IA';
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private afs: AngularFirestore,
               private meetsService: MeetsService,
               private router: Router) { }

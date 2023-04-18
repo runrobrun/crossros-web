@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {Athlete} from "../models/athlete";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {AthletesService} from "../services/athletes.service";
@@ -14,14 +14,14 @@ import {AngularFireStorage} from '@angular/fire/compat/storage';
   styleUrls: ['./edit-athlete-dialog.component.scss']
 })
 export class EditAthleteDialogComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   athlete: Athlete;
   public percentageChanges$: Observable<number | undefined>;
   public profileEditImageUrl: String;
 
   constructor(
     private dialogRef: MatDialogRef<EditAthleteDialogComponent>,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     @Inject(MAT_DIALOG_DATA) athlete: Athlete,
     private athletesService: AthletesService,
     private storage: AngularFireStorage
