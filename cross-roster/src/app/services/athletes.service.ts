@@ -73,10 +73,10 @@ export class AthletesService {
       .pipe(map((result) => convertSnaps<Athlete>(result)));
   }
 
-  getActiveAthletes(): Observable<Athlete[]> {
+  getActiveAthletes(direction: any, sortField: string): Observable<Athlete[]> {
     return this.db
       .collection('athletes', (ref) => ref.where('active', '==', true)
-        .orderBy('lastName'))
+        .orderBy('lastName', direction))
       .get()
       .pipe(map((result) => convertSnaps<Athlete>(result)));
 

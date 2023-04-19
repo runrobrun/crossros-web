@@ -15,8 +15,9 @@
     </mat-progress-bar>
     <span>{{percentage / 100 | percent}}</span>
   </div>
-  <mat-form-field appearance="outline">
-    <input placeholder="First Name" matInput formControlName="firstName" />
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">

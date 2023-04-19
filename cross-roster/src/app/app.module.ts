@@ -30,11 +30,11 @@ import {MatCommonModule, MatNativeDateModule} from '@angular/material/core';
 import {MatLegacySlideToggleModule as MatSlideToggleModule} from "@angular/material/legacy-slide-toggle";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { EditAthleteDialogComponent } from './edit-athlete-dialog/edit-athlete-dialog.component';
-import {MatLegacyDialogModule as MatDialogModule} from "@angular/material/legacy-dialog";
+import {MatDialogModule} from "@angular/material/dialog";
 import { ViewAthleteComponent } from './view-athlete/view-athlete.component';
-import {MatLegacyProgressSpinnerModule as MatProgressSpinnerModule} from "@angular/material/legacy-progress-spinner";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CreateResultComponent } from './create-result/create-result.component';
-import {MatLegacyTableModule as MatTableModule} from "@angular/material/legacy-table";
+import {MatTableModule} from "@angular/material/table";
 import { LoginComponent } from './login/login.component';
 import {MaterialFileInputModule} from "ngx-material-file-input";
 import {MatLegacyProgressBarModule as MatProgressBarModule} from "@angular/material/legacy-progress-bar";
@@ -48,6 +48,7 @@ import { SeasonComponent } from './season/season.component';
 import { CreateSeasonComponent } from './create-season/create-season.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AthleteListViewComponent } from './athlete-list-view/athlete-list-view.component';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -71,16 +72,16 @@ import { AthleteListViewComponent } from './athlete-list-view/athlete-list-view.
     AthleteListViewComponent
 
   ],
-    imports: [
-        BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule, // firestore
-        AngularFireAuthModule, // auth
-        MatCommonModule,
-        MatNativeDateModule,
-        RouterModule.forRoot(AppRoutes),
-        AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, MaterialFileInputModule, MatProgressBarModule, MatButtonToggleModule, // storage
-    ],
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    MatCommonModule,
+    MatNativeDateModule,
+    RouterModule.forRoot(AppRoutes),
+    AngularFireStorageModule, BrowserAnimationsModule, MatSidenavModule, RouterModule, MatIconModule, MatListModule, MatToolbarModule, MatButtonModule, MatTabsModule, MatCardModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatDatepickerModule, MatDialogModule, MatProgressSpinnerModule, MatTableModule, MaterialFileInputModule, MatProgressBarModule, MatButtonToggleModule, MatSortModule, // storage
+  ],
   providers: [
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['http://localhost', 9099] : undefined },
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8008] : undefined }

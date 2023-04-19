@@ -1,8 +1,18 @@
 .athletes-panel {
-  max-width: 400px;
-  margin: 20px auto 0 5px;
+  max-width: 600px;
+  margin: 20px auto 0 auto;
 }
 
 .athlete-list {
-  width:380px;
+  width:100%;
+}
+
+.spinner-container {
+  height: 360px;
+  width: 600px;
+  position: fixed;
+}
+
+.spinner-container mat-spinner {
+  margin: 130px auto 0 auto;
 }
