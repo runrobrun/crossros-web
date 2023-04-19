@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UntypedFormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 import {Athlete} from "../models/athlete";
 import {AthletesService} from "../services/athletes.service";
 import {catchError, concatMap, last, Observable, tap, throwError} from "rxjs";
@@ -42,7 +42,7 @@ export class CreateAthleteComponent implements OnInit {
   public percentageChanges$: Observable<number | undefined>;
   public profileImageUrl: String;
 
-  constructor(private fb: UntypedFormBuilder,
+  constructor(private fb: FormBuilder,
               private athletesService: AthletesService,
               private router: Router,
               private afs: AngularFirestore,
