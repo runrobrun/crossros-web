@@ -53,5 +53,8 @@
       </mat-slide-toggle>
     </mat-card-actions>
   </mat-card>
-   <div *ngIf="!season" class="season">No Active season found. <a routerLink="/create-season">Create one now?</a> See Archived seasons?</div>
+
+</div>
+<div *ngIf="!season" class="season">
+  Hey! It looks like there isn't an active season yet or the past season is over. <a routerLink="/create-season">Create one now?</a> See Archived seasons?
 </div>
