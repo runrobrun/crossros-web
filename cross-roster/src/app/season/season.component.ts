@@ -31,6 +31,7 @@ export class SeasonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.seasonYear);
     this.loadMeets();
     this.loadAthletes();
   }
@@ -45,16 +46,7 @@ export class SeasonComponent implements OnInit {
   }
 
   onToggleSeason(active): void {
-    if (active) {
-      this.seasonsService.deactivateSeason(this.season.id).subscribe();
-    } else {
-      let activeSeason = this.seasonsService.getActiveSeason();
-      console.log(activeSeason)
-      if (activeSeason.length > 0) {
-        this.seasonsService.deactivateSeason(activeSeason[0].id).subscribe();
-      }
-      this.seasonsService.activateSeason(this.season.id).subscribe();
-    }
+    this.seasonsService.toggleSeasons(active, this.seasonId);
   }
 
 }

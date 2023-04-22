@@ -18,6 +18,7 @@ export class SeasonsService {
   }
 
   findSeasonBySeasonYear(seasonYear: string) {
+    console.log(seasonYear);
     return this.db
       .collection('seasons', (ref) => ref.where('seasonYear', '==', parseInt(seasonYear)))
       .get()
@@ -76,5 +77,18 @@ export class SeasonsService {
 
   activateSeason(seasonId: string) {
     return from(this.db.doc(`seasons/${seasonId}`).update({"active": true}))
+  }
+
+  toggleSeasons(active, seasonId) {
+    if (active) {
+      this.deactivateSeason(seasonId).subscribe();
+    } else {
+      let activeSeason = this.getActiveSeason();
+      console.log(activeSeason)
+      if (activeSeason.length > 0) {
+        this.deactivateSeason(activeSeason[0].id).subscribe();
+      }
+      this.activateSeason(seasonId).subscribe();
+    }
   }
 }

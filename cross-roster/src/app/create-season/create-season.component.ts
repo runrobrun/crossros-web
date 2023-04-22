@@ -37,11 +37,13 @@ export class CreateSeasonComponent implements OnInit {
     const newSeason: Partial<Season> = {
       startDate: val.startDate,
       endDate: val.endDate,
-      seasonYear: val.seasonYear,
+      seasonYear: parseInt(val.seasonYear),
       seasonTheme: val.seasonTheme,
       active: val.active
     };
-
+    if(newSeason.active) {
+      this.seasonsService.toggleSeasons(false, this.seasonId);
+    }
     this.seasonsService
       .createSeason(newSeason, this.seasonId)
       .pipe(
