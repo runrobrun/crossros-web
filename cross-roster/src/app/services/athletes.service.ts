@@ -118,7 +118,7 @@ export class AthletesService {
     if (!classToShow) {
       return this.db.collection(
         'athletes',
-        ref => ref.where('gender', '==', 'MALE')
+        ref => ref.where('active', '==', true).where('gender', '==', 'MALE')
           .orderBy('lastName', 'asc'))
         .get()
         .pipe(
@@ -127,7 +127,7 @@ export class AthletesService {
     } else {
       return this.db.collection(
         'athletes',
-        ref => ref.where('gender', '==', 'MALE')
+        ref => ref.where('active', '==', true).where('gender', '==', 'MALE')
           .where('gradYear', '==', classToShow)
           .orderBy('lastName', 'asc'))
         .get()
@@ -141,7 +141,7 @@ export class AthletesService {
     if (!classToShow) {
       return this.db.collection(
         'athletes',
-        ref => ref.where('gender', '==', 'FEMALE')
+        ref => ref.where('active', '==', true).where('gender', '==', 'FEMALE')
           .orderBy('lastName', 'asc'))
         .get()
         .pipe(
@@ -150,7 +150,7 @@ export class AthletesService {
     } else {
       return this.db.collection(
         'athletes',
-        ref => ref.where('gender', '==', 'FEMALE')
+        ref => ref.where('active', '==', true).where('gender', '==', 'FEMALE')
           .where('gradYear', '==', classToShow)
           .orderBy('lastName', 'asc'))
         .get()

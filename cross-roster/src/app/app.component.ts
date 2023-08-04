@@ -20,4 +20,6 @@ export class AppComponent {
   logout() {
     this.user.logout();
   }
+
+  protected readonly environment = environment;
 }

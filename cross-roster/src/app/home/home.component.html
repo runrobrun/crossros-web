@@ -14,10 +14,10 @@
       <ng-container *ngIf="user.isLoggedIn$ | async">
         <mat-button-toggle-group name="filter" aria-label="filter" class="filters">
           <mat-button-toggle (click)="loadMaleAthletesByClass(null)">All</mat-button-toggle>
-          <mat-button-toggle (click)="loadMaleAthletesByClass('2026')">Freshmen</mat-button-toggle>
-          <mat-button-toggle (click)="loadMaleAthletesByClass('2025')">Sophomore</mat-button-toggle>
-          <mat-button-toggle (click)="loadMaleAthletesByClass('2024')">Junior</mat-button-toggle>
-          <mat-button-toggle (click)="loadMaleAthletesByClass('2023')">Senior</mat-button-toggle>
+          <mat-button-toggle (click)="loadMaleAthletesByClass('2027')">Freshmen</mat-button-toggle>
+          <mat-button-toggle (click)="loadMaleAthletesByClass('2026')">Sophomore</mat-button-toggle>
+          <mat-button-toggle (click)="loadMaleAthletesByClass('2025')">Junior</mat-button-toggle>
+          <mat-button-toggle (click)="loadMaleAthletesByClass('2024')">Senior</mat-button-toggle>
         </mat-button-toggle-group>
         <div class="spinner-container" *ngIf="loading">
           <mat-spinner></mat-spinner>
@@ -36,10 +36,10 @@
       <ng-container *ngIf="user.isLoggedIn$ | async">
         <mat-button-toggle-group name="filter" aria-label="filter" class="filters">
           <mat-button-toggle (click)="loadFemaleAthletesByClass(null)">All</mat-button-toggle>
-          <mat-button-toggle (click)="loadFemaleAthletesByClass('2026')">Freshmen</mat-button-toggle>
-          <mat-button-toggle (click)="loadFemaleAthletesByClass('2025')">Sophomore</mat-button-toggle>
-          <mat-button-toggle (click)="loadFemaleAthletesByClass('2024')">Junior</mat-button-toggle>
-          <mat-button-toggle (click)="loadFemaleAthletesByClass('2023')">Senior</mat-button-toggle>
+          <mat-button-toggle (click)="loadFemaleAthletesByClass('2027')">Freshmen</mat-button-toggle>
+          <mat-button-toggle (click)="loadFemaleAthletesByClass('2026')">Sophomore</mat-button-toggle>
+          <mat-button-toggle (click)="loadFemaleAthletesByClass('2025')">Junior</mat-button-toggle>
+          <mat-button-toggle (click)="loadFemaleAthletesByClass('2024')">Senior</mat-button-toggle>
         </mat-button-toggle-group>
         <app-athlete-card-list [athletes]="femaleAthletesByClass$ | async"
                                (athleteEdited)="reloadAthletes()"
